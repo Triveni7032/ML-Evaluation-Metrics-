@@ -1,0 +1,172 @@
+# Evaluation Metrics in Machine Learning
+
+Evaluation metrics are used to measure how well a Machine Learning model performs on data.
+
+Different metrics are used for **Classification** and **Regression** problems.
+
+---
+
+# 1. Classification Metrics
+
+Classification metrics are used when the model predicts categories such as:
+
+```text
+Spam / Not Spam
+Pass / Fail
+Yes / No
+2. Confusion Matrix
+
+A confusion matrix shows the correct and incorrect predictions made by a classification model.
+
+                 Predicted
+               Positive  Negative
+
+Actual Positive    TP        FN
+Actual Negative    FP        TN
+TP → True Positive
+TN → True Negative
+FP → False Positive
+FN → False Negative
+3. Accuracy
+
+Accuracy measures the percentage of correct predictions.
+
+Accuracy =
+(TP + TN) / (TP + TN + FP + FN)
+
+Python:
+
+from sklearn.metrics import accuracy_score
+
+accuracy = accuracy_score(y_test, y_pred)
+
+print(accuracy)
+4. Precision
+
+Precision measures how many predicted positive values are actually positive.
+
+Precision =
+TP / (TP + FP)
+
+Python:
+
+from sklearn.metrics import precision_score
+
+precision = precision_score(y_test, y_pred)
+
+print(precision)
+5. Recall
+
+Recall measures how many actual positive values were correctly identified.
+
+Recall =
+TP / (TP + FN)
+
+Python:
+
+from sklearn.metrics import recall_score
+
+recall = recall_score(y_test, y_pred)
+
+print(recall)
+6. F1-Score
+
+F1-score combines Precision and Recall into one metric.
+
+F1 Score =
+2 × (Precision × Recall) /
+(Precision + Recall)
+
+Python:
+
+from sklearn.metrics import f1_score
+
+f1 = f1_score(y_test, y_pred)
+
+print(f1)
+7. Regression Metrics
+
+Regression metrics are used when the model predicts numerical values.
+
+Examples:
+
+House Price
+Salary
+Temperature
+Sales
+8. MAE
+
+Mean Absolute Error (MAE) measures the average absolute difference between actual and predicted values.
+
+from sklearn.metrics import mean_absolute_error
+
+mae = mean_absolute_error(y_test, y_pred)
+
+print(mae)
+
+Lower MAE is generally better.
+
+9. MSE
+
+Mean Squared Error (MSE) calculates the average squared difference between actual and predicted values.
+
+from sklearn.metrics import mean_squared_error
+
+mse = mean_squared_error(y_test, y_pred)
+
+print(mse)
+
+Lower MSE is generally better.
+
+10. RMSE
+
+Root Mean Squared Error (RMSE) is the square root of MSE.
+
+import numpy as np
+from sklearn.metrics import mean_squared_error
+
+rmse = np.sqrt(mean_squared_error(y_test, y_pred))
+
+print(rmse)
+
+Lower RMSE is generally better.
+
+11. R² Score
+
+R² Score measures how well the model explains the variation in the target variable.
+
+from sklearn.metrics import r2_score
+
+r2 = r2_score(y_test, y_pred)
+
+print(r2)
+
+A higher R² score generally indicates a better fit.
+
+12. Classification vs Regression Metrics
+Classification	Regression
+Accuracy	MAE
+Precision	MSE
+Recall	RMSE
+F1-Score	R² Score
+Confusion Matrix	
+13. Quick Summary
+Classification
+↓
+Accuracy
+Precision
+Recall
+F1-Score
+Confusion Matrix
+
+Regression
+↓
+MAE
+MSE
+RMSE
+R² Score
+Conclusion
+
+Evaluation metrics help us understand how well a Machine Learning model performs.
+
+The appropriate metric depends on whether the problem is Classification or Regression.
